@@ -103,15 +103,15 @@ CURRENCIES = {
 # VERDICT
 # ─────────────────────────────────────────────
 def get_verdict(cost_usd):
-    if cost_usd < 20:
+    if cost_usd < 10:
         return ("REASONABLE", "#2e7d32",
                 "#e8f5e9",
                 "This meeting was worth the time.")
-    elif cost_usd < 60:
+    elif cost_usd < 30:
         return ("MODERATE", "#f57c00",
                 "#fff3e0",
                 "Consider shortening next time.")
-    elif cost_usd < 120:
+    elif cost_usd < 70:
         return ("EXPENSIVE", "#c62828",
                 "#ffebee",
                 "This could have been an email.")
@@ -125,32 +125,34 @@ def get_verdict(cost_usd):
 # ─────────────────────────────────────────────
 def get_alternatives(cost_usd, symbol, fx):
     alts = []
-    if cost_usd > 30:
+    c = cost_usd * fx  # local currency amount
+    
+    if c > 500:
         alts.append(
-            f"A detailed email to all attendees")
-    if cost_usd > 80:
+            "A detailed email to all attendees")
+    if c > 1000:
         alts.append(
-            f"A 5 minute Slack message")
-    if cost_usd > 150:
+            "A shared document with comments")
+    if c > 2000:
         alts.append(
-            f"{symbol}{cost_usd * fx:,.0f} worth "
-            f"of coffee for the whole office")
-    if cost_usd > 250:
+            f"Team chai and snacks for everyone")
+    if c > 5000:
         alts.append(
-            f"A business class seat upgrade")
-    if cost_usd > 400:
+            "Team lunch for everyone")
+    if c > 8000:
         alts.append(
-            f"A weekend hotel stay")
-    if cost_usd > 600:
+            "A domestic flight ticket")
+    if c > 15000:
         alts.append(
-            f"A brand new smartphone")
-    if cost_usd > 1000:
+            "A weekend hotel stay")
+    if c > 25000:
         alts.append(
-            f"A return flight ticket")
-    if cost_usd > 2000:
+            "A brand new smartphone")
+    if c > 50000:
         alts.append(
-            f"A MacBook Pro")
+            "A MacBook Air")
     return alts
+
 
 # ─────────────────────────────────────────────
 # HEADER
