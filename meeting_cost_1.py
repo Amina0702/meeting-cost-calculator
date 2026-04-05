@@ -103,20 +103,25 @@ CURRENCIES = {
 # VERDICT
 # ─────────────────────────────────────────────
 def get_verdict(cost_usd):
-    if cost_usd < 10:
+    if cost_usd < 20:
         return ("REASONABLE", "#2e7d32",
                 "#e8f5e9",
                 "This meeting was worth the time.")
-    elif cost_usd < 30:
+    elif cost_usd < 50:
         return ("MODERATE", "#f57c00",
                 "#fff3e0",
                 "Consider shortening next time.")
-    elif cost_usd < 70:
+    elif cost_usd < 100:
         return ("EXPENSIVE", "#c62828",
                 "#ffebee",
                 "This could have been an email.")
+    elif cost_usd < 200:
+        return ("VERY EXPENSIVE", "#c62828",
+                "#ffebee",
+                "Seriously reconsider this meeting.")
+                
     else:
-        return ("VERY EXPENSIVE", "#b71c1c",
+        return ("EXTREMELY EXPENSIVE", "#b71c1c",
                 "#ffcdd2",
                 "This meeting cost more than a flight ticket!")
 
