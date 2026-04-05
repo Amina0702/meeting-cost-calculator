@@ -10,7 +10,7 @@ Enter your meeting details and find out :
 -  Annual cost if recurring
    
 ## Try it free
-Link : 
+Link : https://meeting-cost-calculator-xush2a5ehvx8cek2mtwey4.streamlit.app/
    
 ## Built with
 -Python
